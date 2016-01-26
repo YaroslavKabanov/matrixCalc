@@ -1,8 +1,8 @@
 var showArray = function (matrix) {
 	for (var i = 0; i < matrix.length; i++) {
 		console.log(matrix[i]);
-		}
 	}
+}
 
 // function that creates new empty array
 var newArray = function (matrixSize) {
@@ -56,7 +56,7 @@ var matrixSumTest1 = function () {
 
 	if (matrixEqual(sum,mtxResult)){
 		console.log("Passed test 1");
-		} else {
+	    } else {
 			console.log("Failed test 1");
 			console.log("Sum result: ")
 			showArray(sum);
