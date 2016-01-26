@@ -1,41 +1,42 @@
-// test commit
-
-var mtx1 = [[1,2,3],[4,5,6],[7,8,9]]; 
-var mtx2 = [[1,1,1],[1,1,1],[1,1,1]]; 
+var showArray = function (matrix) {
+	for (var i = 0; i < matrix.length; i++) {
+		console.log(matrix[i]);
+		}
+	}
 
 // function that creates new empty array
 var newArray = function (matrixSize) {
  	var matrixResult = [];
-		for (var k = 0; k < matrixSize; k++){
-	    	matrixResult[k] = [];
-	   	    	for (var m = 0; m < matrixSize; m++){
-			       	matrixResult[k][m] = 0;
+	for (var k = 0; k < matrixSize; k++){
+	   	matrixResult[k] = [];
+  	    	for (var m = 0; m < matrixSize; m++){
+  	 	       	matrixResult[k][m] = 0;
 			}
-		}
+	}
 		return matrixResult;
-	}	
+}	
 
 
 
 // function that adds two matrix 
 var matrixSum = function (matrix1, matrix2) {
 	matrixResult = newArray(matrix1.length); // creating new empty array
-		for (var i = 0; i < matrix1.length; i++) {
-			for (var j = 0; j < matrix1.length; j++) {
-				matrixResult[i][j] = matrix1[i][j] + matrix2[i][j];
+	for (var i = 0; i < matrix1.length; i++) {
+		for (var j = 0; j < matrix1.length; j++) {
+			matrixResult[i][j] = matrix1[i][j] + matrix2[i][j];
 
-			}
 		}
-		return matrixResult;
 	}
+	return matrixResult;
+}
 
 // function checks if two matrixes are equal 
 var matrixEqual = function (matrix1, matrix2) {
 	if (!!matrix1 && !!matrix2) {
-			for (var i = 0; i < matrix1.length; i++) {
-				for (var j = 0; j < matrix1.length; j++) {
-					if (matrix1[i][j] !== matrix2 [i][j]) {
-						return false;
+		for (var i = 0; i < matrix1.length; i++) {
+			for (var j = 0; j < matrix1.length; j++) {
+				if (matrix1[i][j] !== matrix2 [i][j]) {
+					return false;
 				}
 			}
 		}
@@ -53,12 +54,16 @@ var matrixSumTest1 = function () {
 
 	var sum = matrixSum(mtx1,mtx2);
 
-
 	if (matrixEqual(sum,mtxResult)){
 		console.log("Passed test 1");
 		} else {
 			console.log("Failed test 1");
-		}
+			console.log("Sum result: ")
+			showArray(sum);
+			console.log("Actual result:")
+			showArray(mtxResult);
+
+	}
 }
 
 
@@ -74,10 +79,12 @@ var matrixSumTest2 = function () {
 		console.log("Passed test 2");
 		} else {
 			console.log("Failed test 2");
-		}
+			console.log("Sum result: ")
+			showArray(sum);
+			console.log("Actual result:")
+			showArray(mtxResult2);
+	}
 }
-
-
 
 matrixSumTest1();
 matrixSumTest2();
